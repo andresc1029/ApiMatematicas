@@ -7,6 +7,7 @@ namespace ApiMatematicas.Controllers
     public class ControladorMatematicas : ControllerBase
     {
         private static Random rand = new Random();
+        private static int contadorDeRacha = 0;
 
 
         [HttpGet("random")]
@@ -20,8 +21,19 @@ namespace ApiMatematicas.Controllers
         [HttpPost ("pregunta")]
         public IActionResult PostPregunta([FromBody] AnswerRequest request)
         {
+
             bool correcto =  request.respuestaUsuario == request.numero1 * request.numero2;
-            return Ok(new { correcto });
+
+            if (correcto)
+            {
+                contadorDeRacha++;
+            }
+            else
+            {
+                contadorDeRacha = 0;
+            }
+                return Ok(new { correcto, racha = contadorDeRacha });
+
         }
     }
 
