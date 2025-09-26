@@ -39,9 +39,9 @@ namespace ApiMatematicas.Controllers
                     tiempoInicioPregunta = DateTime.UtcNow;
                 }
 
+                int limiteTiempo = contadorDeRacha >= 15 ? 5 : (contadorDeRacha >= 10 ? 10 : 15);
                 var tiempoTranscurrido = DateTime.UtcNow - tiempoInicioPregunta;
 
-                int limiteTiempo = contadorDeRacha >= 15 ? 5 :  (contadorDeRacha >= 10 ? 10 : 15);
                 if (tiempoTranscurrido.TotalSeconds > limiteTiempo)
                 {
                     contadorDeRacha = 0;
@@ -53,6 +53,8 @@ namespace ApiMatematicas.Controllers
                 {
                     contadorDeRacha++;
                     tiempoInicioPregunta = DateTime.UtcNow;
+                    
+                    return Ok(new { correcto, racha = contadorDeRacha, tiempoUsuario = limiteTiempo, tiempoInicio = limiteTiempo });
                 }
                 else
                 {
