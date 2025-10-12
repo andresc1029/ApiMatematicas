@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.Text.Json.Serialization;
 
 namespace ApiMatematicas.Models
 {
@@ -13,6 +14,12 @@ namespace ApiMatematicas.Models
         public string rol { get; set; } = "Usuario";
         public bool activo { get; set; } = true;
 
+
+        [JsonIgnore]
         public ICollection<SistemaRacha> Rachas { get; set; } = new List<SistemaRacha>();
+
+        [JsonIgnore]
+        public ICollection<ReinicioContrasenaToken> ReinicioContraseñas { get; set; } = new List<ReinicioContrasenaToken>();
+
     }
 }

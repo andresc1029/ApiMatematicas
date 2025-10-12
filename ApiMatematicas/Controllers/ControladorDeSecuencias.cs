@@ -149,7 +149,7 @@ namespace ApiMatematicas.Controllers
             return Ok(new
             {
                 correcta = esCorrecta,
-                respuestaCorrecta = secuencia.Respuesta, // opcional, para mostrar al usuario
+                respuestaCorrecta = secuencia.Respuesta,
                 modo = dto.Modo.ToString(),
                 rachaActual = racha.Actual,
                 rachaMaxima = racha.Maxima,

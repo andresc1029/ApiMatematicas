@@ -13,6 +13,8 @@ namespace ApiMatematicas.Data
 
         public DbSet<SistemaRacha> Rachas { get; set; }
 
+        public DbSet<ReinicioContrasenaToken> ReinicioContraseñas { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Relación 1:N entre Usuario y Rachas
