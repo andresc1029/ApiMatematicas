@@ -1,5 +1,5 @@
 using ApiMatematicas.Data;
-using ApiMatematicas.Strategy;
+using ApiMatematicas.Strategy.RecupearContraseñaStrategy;
 using Microsoft.EntityFrameworkCore;
 using NETCore.MailKit;
 using NETCore.MailKit.Core;

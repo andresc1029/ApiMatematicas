@@ -13,4 +13,10 @@
         public string NuevaContraseña { get; set; }
         public string Token { get; set; }
     }
+
+    public class ValidarCodigoDTO
+    {
+        public string CorreoUsuario { get; set; }
+        public string Token { get; set; }
+    }
 }

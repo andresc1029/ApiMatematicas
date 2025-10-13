@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NETCore.MailKit.Core;
 using Org.BouncyCastle.Crypto.Generators;
 
-namespace ApiMatematicas.Strategy
+namespace ApiMatematicas.Strategy.RecupearContraseñaStrategy
 {
     public class RecuperacionContrasena : IRecuperarContrasena
     {
@@ -50,6 +50,23 @@ namespace ApiMatematicas.Strategy
             );
         }
 
+        public async Task<bool> ValidarCodigoAsync(string correo, string token)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Correo == correo);
+            if (usuario == null) return false;
+
+            var codigo = await _context.ReinicioContraseñas
+                .Where(r => r.UserId == usuario.id && r.Token == token)
+                .OrderByDescending(r => r.Expiration)
+                .FirstOrDefaultAsync();
+
+            if (codigo == null) return false;
+            if (codigo.Expiration < DateTime.UtcNow) return false;
+
+            return true;
+        }
+
+
         public Task<bool> RestablecerContraseña(string correo, string token, string codigo)
         {
             throw new NotImplementedException();
@@ -74,6 +91,8 @@ namespace ApiMatematicas.Strategy
 
             // Actualizar la contraseña (encriptada)
             user.PasswordHash = PasswordHelper.HashPassword(nuevaContraseña);
+
+            _context.Entry(user).State = EntityState.Modified;
 
             // Eliminar el token para que no se reutilice
             _context.ReinicioContraseñas.Remove(resetToken);

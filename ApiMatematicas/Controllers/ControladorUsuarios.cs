@@ -9,6 +9,7 @@ using ApiMatematicas.Utilidades;
 using System.Security.Cryptography;
 using System.Text;
 
+
 namespace ApiMatematicas.Controllers
 {
     [Route("api/[controller]")]
@@ -33,7 +34,7 @@ namespace ApiMatematicas.Controllers
             if (await _context.Usuarios.AnyAsync(u => u.nombreUsuario == usuario.nombreUsuario))
                 return BadRequest(new { mensaje = "El usuario ya existe." });
 
-            usuario.PasswordHash = HashPassword(usuario.contrasena);
+            usuario.PasswordHash = BCrypt.Net.BCrypt.HashPassword(usuario.contrasena);
 
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
@@ -49,7 +50,7 @@ namespace ApiMatematicas.Controllers
 
             var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.nombreUsuario == login.nombreUsuario);
 
-            if (usuario == null || !VerifyPassword(login.contrasena, usuario.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(login.contrasena, usuario.PasswordHash))
                 return Unauthorized(new { mensaje = "Usuario o contraseña incorrecta." });
 
             // Generar JWT
@@ -59,19 +60,9 @@ namespace ApiMatematicas.Controllers
         }
 
         // ---- Métodos de ayuda ----
-        private string HashPassword(string password)
-        {
-            using var sha256 = SHA256.Create();
-            var bytes = Encoding.UTF8.GetBytes(password);
-            var hashBytes = sha256.ComputeHash(bytes);
-            return Convert.ToBase64String(hashBytes);
-        }
+        
 
-        private bool VerifyPassword(string password, string hash)
-        {
-            return HashPassword(password) == hash;
-        }
-
+        
         private string GenerateJwtToken(Usuario usuario)
         {
             var jwtSettings = _config.GetSection("Jwt");
@@ -84,7 +75,8 @@ namespace ApiMatematicas.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, usuario.nombreUsuario),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("userId", usuario.id.ToString())
+                new Claim("userId", usuario.id.ToString()),
+                new Claim("Correo", usuario.Correo ?? "")
             };
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);

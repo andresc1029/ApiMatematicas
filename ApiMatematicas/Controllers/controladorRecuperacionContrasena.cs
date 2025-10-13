@@ -1,6 +1,6 @@
 ﻿using ApiMatematicas.Data;
 using ApiMatematicas.DTO;
-using ApiMatematicas.Strategy;
+using ApiMatematicas.Strategy.RecupearContraseñaStrategy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +19,7 @@ namespace ApiMatematicas.Controllers
             _recuperarContrasena = recuperarContrasena;
         }
 
-        // ------------------ Enviar código de recuperación ------------------
+        //Enviar código de recuperación
         [HttpPost("EnviarCodigo")]
         public async Task<IActionResult> EnviarCodigo([FromBody] SolicitudContraseñaDTO dto)
         {
@@ -38,7 +38,22 @@ namespace ApiMatematicas.Controllers
             }
         }
 
-        // ------------------ Restablecer contraseña ------------------
+        [HttpPost("ValidarCodigo")]
+        public async Task<IActionResult> ValidarCodigo([FromBody] ValidarCodigoDTO dto)
+        {
+            try
+            {
+                bool esValido = await _recuperarContrasena.ValidarCodigoAsync(dto.CorreoUsuario, dto.Token);
+                if (!esValido) return BadRequest(new { mensaje = "Código inválido o expirado." });
+
+                return Ok(new { mensaje = "Código válido." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensaje = ex.Message });
+            }
+        }
+        //Restablecer contraseña
         [HttpPost("Restablecer")]
         public async Task<IActionResult> Restablecer([FromBody] CambioContraseñaDTO dto)
         {
