@@ -8,6 +8,7 @@ using System.Security.Claims;
 using ApiMatematicas.Utilidades;
 using System.Security.Cryptography;
 using System.Text;
+using ApiMatematicas.Strategy.InicioSesionStrateg;
 
 
 namespace ApiMatematicas.Controllers
@@ -18,11 +19,14 @@ namespace ApiMatematicas.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _config;
+        private readonly IRecuperarTokenInicioStrategy _recuperarToken;
 
-        public ControladorUsuarios(AppDbContext context, IConfiguration config)
+
+        public ControladorUsuarios(AppDbContext context, IConfiguration config, IRecuperarTokenInicioStrategy recupearToken)
         {
             _context = context;
             _config = config;
+            _recuperarToken = recupearToken;
         }
 
         [HttpPost("Registro")]
@@ -54,42 +58,9 @@ namespace ApiMatematicas.Controllers
                 return Unauthorized(new { mensaje = "Usuario o contraseña incorrecta." });
 
             // Generar JWT
-            var token = GenerateJwtToken(usuario);
+            var token = _recuperarToken.GenerateToken(usuario);
 
             return Ok(new { token, nombreUsuario = usuario.nombreUsuario });
-        }
-
-        // ---- Métodos de ayuda ----
-        
-
-        
-        private string GenerateJwtToken(Usuario usuario)
-        {
-            var jwtSettings = _config.GetSection("Jwt");
-            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
-            var issuer = jwtSettings["Issuer"];
-            var audience = jwtSettings["Audience"];
-            var duration = double.Parse(jwtSettings["DurationInMinutes"]);
-
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, usuario.nombreUsuario),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("userId", usuario.id.ToString()),
-                new Claim("Correo", usuario.Correo ?? "")
-            };
-
-            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: issuer,
-                audience: audience,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(duration),
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        }      
     }
 }

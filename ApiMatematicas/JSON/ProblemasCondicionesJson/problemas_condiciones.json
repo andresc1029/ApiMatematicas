@@ -1,0 +1,6 @@
+﻿namespace ApiMatematicas.JSON.ProblemasCondicionesJson
+{
+    public class problemas_condiciones
+    {
+    }
+}
