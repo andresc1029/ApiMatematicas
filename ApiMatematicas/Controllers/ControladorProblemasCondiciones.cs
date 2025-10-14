@@ -24,16 +24,17 @@ namespace ApiMatematicas.Controllers
         // Función para decidir dificultad según racha máxima e histórica
         private string ObtenerDificultad(int rachaActual, int rachaMaxima)
         {
-            // Determinar dificultad inicial según racha máxima
-            string dificultad = rachaMaxima < 7 ? "Facil" :
-                                rachaMaxima < 30 ? "Medio" : "Dificil";
+            // Promedio ponderado entre desempeño actual y máximo histórico
+            double rendimiento = (rachaActual * 0.6 + rachaMaxima * 0.4);
 
-            // Ajustar según racha actual durante la sesión
-            if (rachaActual >= 14) dificultad = "Dificil";
-            else if (rachaActual >= 7) dificultad = "Medio";
-
-            return dificultad;
+            if (rendimiento >= 50)
+                return "Dificil";
+            else if (rendimiento >= 25)
+                return "Medio";
+            else
+                return "Facil";
         }
+
 
         // GET: Obtener problema adaptativo para el usuario
         [HttpGet("obtener/{usuarioId}/{modo}")]

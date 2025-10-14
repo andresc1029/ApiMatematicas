@@ -1,6 +1,549 @@
-﻿namespace ApiMatematicas.JSON.ProblemasCondicionesJson
-{
-    public class problemas_condiciones
+﻿{
+  "Facil": [
     {
+      "Id": 1001,
+      "Enunciado": "Si X = 10, Y = 15, y Z = 5, ¿cuál es menor?",
+      "OpcionA": "X",
+      "OpcionB": "Y",
+      "OpcionC": "Z",
+      "RespuestaCorrecta": "Z",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1005,
+      "Enunciado": "Si un número es mayor que 5 y menor que 10, ¿podría ser 7?",
+      "OpcionA": "Sí",
+      "OpcionB": "No",
+      "OpcionC": "Depende",
+      "RespuestaCorrecta": "Sí",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1006,
+      "Enunciado": "Si Juan tiene 8 años y su hermana tiene 4, ¿quién es mayor?",
+      "OpcionA": "Juan",
+      "OpcionB": "Su hermana",
+      "OpcionC": "Tienen la misma edad",
+      "RespuestaCorrecta": "Juan",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1007,
+      "Enunciado": "Si 10 > 7 y 7 > 3, ¿cuál es el número más pequeño?",
+      "OpcionA": "10",
+      "OpcionB": "7",
+      "OpcionC": "3",
+      "RespuestaCorrecta": "3",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1008,
+      "Enunciado": "Si llueve, las calles están mojadas. Hoy las calles están mojadas, ¿qué se puede deducir?",
+      "OpcionA": "Está lloviendo",
+      "OpcionB": "Podría haber llovido antes",
+      "OpcionC": "No hay relación",
+      "RespuestaCorrecta": "Podría haber llovido antes",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1009,
+      "Enunciado": "Si 2 + X = 5, ¿cuánto vale X?",
+      "OpcionA": "2",
+      "OpcionB": "3",
+      "OpcionC": "5",
+      "RespuestaCorrecta": "3",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1010,
+      "Enunciado": "Si el sol sale por el este, ¿por dónde se oculta?",
+      "OpcionA": "Norte",
+      "OpcionB": "Sur",
+      "OpcionC": "Oeste",
+      "RespuestaCorrecta": "Oeste",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1011,
+      "Enunciado": "Si tienes 3 manzanas y das 1, ¿cuántas te quedan?",
+      "OpcionA": "2",
+      "OpcionB": "3",
+      "OpcionC": "1",
+      "RespuestaCorrecta": "2",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1012,
+      "Enunciado": "Si un triángulo tiene tres lados iguales, ¿qué tipo de triángulo es?",
+      "OpcionA": "Isósceles",
+      "OpcionB": "Escaleno",
+      "OpcionC": "Equilátero",
+      "RespuestaCorrecta": "Equilátero",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1013,
+      "Enunciado": "Si un número es par, ¿cuál de los siguientes puede ser par?",
+      "OpcionA": "9",
+      "OpcionB": "12",
+      "OpcionC": "7",
+      "RespuestaCorrecta": "12",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1014,
+      "Enunciado": "Si 5 × X = 25, ¿cuál es el valor de X?",
+      "OpcionA": "5",
+      "OpcionB": "10",
+      "OpcionC": "20",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1015,
+      "Enunciado": "Si 8 es mayor que 6, ¿qué número es menor?",
+      "OpcionA": "8",
+      "OpcionB": "6",
+      "OpcionC": "Son iguales",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1016,
+      "Enunciado": "Si un coche va más rápido que una bicicleta, ¿qué medio de transporte es más lento?",
+      "OpcionA": "El coche",
+      "OpcionB": "La bicicleta",
+      "OpcionC": "Van igual",
+      "RespuestaCorrecta": "La bicicleta",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1017,
+      "Enunciado": "Si hoy es viernes, ¿qué día fue ayer?",
+      "OpcionA": "Miércoles",
+      "OpcionB": "Jueves",
+      "OpcionC": "Sábado",
+      "RespuestaCorrecta": "Jueves",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1018,
+      "Enunciado": "Si tienes el doble de 4, ¿cuánto tienes?",
+      "OpcionA": "6",
+      "OpcionB": "8",
+      "OpcionC": "10",
+      "RespuestaCorrecta": "8",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1019,
+      "Enunciado": "Si el agua está a 0 grados Celsius, ¿qué sucede normalmente?",
+      "OpcionA": "Se congela",
+      "OpcionB": "Hierve",
+      "OpcionC": "Se evapora",
+      "RespuestaCorrecta": "Se congela",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1020,
+      "Enunciado": "Si un año tiene 12 meses, ¿cuántos meses tienen 28 días?",
+      "OpcionA": "1",
+      "OpcionB": "Todos",
+      "OpcionC": "Ninguno",
+      "RespuestaCorrecta": "Todos",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1021,
+      "Enunciado": "Si 9 + X = 15, ¿cuánto vale X?",
+      "OpcionA": "4",
+      "OpcionB": "5",
+      "OpcionC": "6",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1022,
+      "Enunciado": "Si 10 es mayor que 3, ¿qué se puede afirmar?",
+      "OpcionA": "3 es menor que 10",
+      "OpcionB": "Son iguales",
+      "OpcionC": "10 es menor que 3",
+      "RespuestaCorrecta": "3 es menor que 10",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1023,
+      "Enunciado": "Si una semana tiene 7 días, ¿cuántos días hay en dos semanas?",
+      "OpcionA": "10",
+      "OpcionB": "14",
+      "OpcionC": "12",
+      "RespuestaCorrecta": "14",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1024,
+      "Enunciado": "Si 6 es mayor que 4 y 4 es mayor que 2, ¿cuál es el número más grande?",
+      "OpcionA": "6",
+      "OpcionB": "4",
+      "OpcionC": "2",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1002,
+      "Enunciado": "Si A > B y B > C, entonces ¿A es mayor que C?",
+      "OpcionA": "Sí",
+      "OpcionB": "No",
+      "OpcionC": "Depende",
+      "RespuestaCorrecta": "Sí",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1003,
+      "Enunciado": "Si hoy es lunes, ¿qué día será dentro de 2 días?",
+      "OpcionA": "Martes",
+      "OpcionB": "Miércoles",
+      "OpcionC": "Jueves",
+      "RespuestaCorrecta": "Miércoles",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1004,
+      "Enunciado": "Si tienes 3 manzanas y das 1, ¿cuántas te quedan?",
+      "OpcionA": "1",
+      "OpcionB": "2",
+      "OpcionC": "3",
+      "RespuestaCorrecta": "2",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1005,
+      "Enunciado": "Si 5 > 3 y 3 > 1, ¿cuál es el número más pequeño?",
+      "OpcionA": "5",
+      "OpcionB": "3",
+      "OpcionC": "1",
+      "RespuestaCorrecta": "1",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1006,
+      "Enunciado": "Si Juan tiene más dinero que Ana, y Ana más que Pedro, ¿quién tiene menos dinero?",
+      "OpcionA": "Juan",
+      "OpcionB": "Ana",
+      "OpcionC": "Pedro",
+      "RespuestaCorrecta": "Pedro",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1007,
+      "Enunciado": "Si el cielo está nublado, ¿qué puede suceder?",
+      "OpcionA": "Llover",
+      "OpcionB": "Nevar",
+      "OpcionC": "Hace sol",
+      "RespuestaCorrecta": "Llover",
+      "Dificultad": "Facil"
+    },
+    {
+      "Id": 1025,
+      "Enunciado": "Si 2 + 2 = 4, ¿cuánto es 4 + 2?",
+      "OpcionA": "5",
+      "OpcionB": "6",
+      "OpcionC": "7",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Facil"
     }
+  ],
+  "Medio": [
+    {
+      "Id": 2001,
+      "Enunciado": "Si A > B, B < C y C = D, ¿cuál es menor?",
+      "OpcionA": "A",
+      "OpcionB": "B",
+      "OpcionC": "C",
+      "OpcionD": "D",
+      "RespuestaCorrecta": "B",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2002,
+      "Enunciado": "Si Pedro es mayor que Juan, y Juan mayor que Ana, ¿quién es más joven?",
+      "OpcionA": "Pedro",
+      "OpcionB": "Juan",
+      "OpcionC": "Ana",
+      "RespuestaCorrecta": "Ana",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2003,
+      "Enunciado": "Si X = 2Y y Y = 3Z, ¿qué valor tiene X en función de Z?",
+      "OpcionA": "X = 5Z",
+      "OpcionB": "X = 6Z",
+      "OpcionC": "X = Z/6",
+      "RespuestaCorrecta": "X = 6Z",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2004,
+      "Enunciado": "Si A + B = 10 y A = 6, ¿cuánto vale B?",
+      "OpcionA": "4",
+      "OpcionB": "6",
+      "OpcionC": "10",
+      "RespuestaCorrecta": "4",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2005,
+      "Enunciado": "Si hoy es martes, ¿qué día fue hace 3 días?",
+      "OpcionA": "Viernes",
+      "OpcionB": "Sábado",
+      "OpcionC": "Domingo",
+      "RespuestaCorrecta": "Sábado",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2006,
+      "Enunciado": "Si un número par se multiplica por un número impar, ¿el resultado es?",
+      "OpcionA": "Par",
+      "OpcionB": "Impar",
+      "OpcionC": "Ninguno",
+      "RespuestaCorrecta": "Par",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2007,
+      "Enunciado": "Si 5x = 20, ¿cuánto vale x?",
+      "OpcionA": "3",
+      "OpcionB": "4",
+      "OpcionC": "5",
+      "RespuestaCorrecta": "4",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2008,
+      "Enunciado": "Si todos los gatos son mamíferos y algunos mamíferos son negros, ¿podemos decir que todos los gatos son negros?",
+      "OpcionA": "Sí",
+      "OpcionB": "No",
+      "OpcionC": "A veces",
+      "RespuestaCorrecta": "No",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2009,
+      "Enunciado": "Si un tren sale a las 8:00 y otro a las 9:00, ¿cuál llega primero si ambos van a la misma velocidad?",
+      "OpcionA": "El primero",
+      "OpcionB": "El segundo",
+      "OpcionC": "Llegan juntos",
+      "RespuestaCorrecta": "El primero",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2010,
+      "Enunciado": "Si 2A = 8, ¿cuánto vale A?",
+      "OpcionA": "2",
+      "OpcionB": "4",
+      "OpcionC": "8",
+      "RespuestaCorrecta": "4",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2013,
+      "Enunciado": "Si A + B = 10 y B + C = 12, y A = 4, ¿cuánto vale C?",
+      "OpcionA": "6",
+      "OpcionB": "8",
+      "OpcionC": "10",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2014,
+      "Enunciado": "Si un triángulo tiene dos lados iguales y uno diferente, ¿qué tipo de triángulo es?",
+      "OpcionA": "Escaleno",
+      "OpcionB": "Isósceles",
+      "OpcionC": "Equilátero",
+      "RespuestaCorrecta": "Isósceles",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2015,
+      "Enunciado": "Si 5 + X = 3 + 7, ¿cuánto vale X?",
+      "OpcionA": "5",
+      "OpcionB": "4",
+      "OpcionC": "2",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2016,
+      "Enunciado": "Si Carlos tiene el doble de edad que Luis y Luis tiene 5 años, ¿cuántos años tiene Carlos?",
+      "OpcionA": "10",
+      "OpcionB": "12",
+      "OpcionC": "8",
+      "RespuestaCorrecta": "10",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2017,
+      "Enunciado": "Si el precio de un artículo baja un 20% de $50, ¿cuánto cuesta ahora?",
+      "OpcionA": "$40",
+      "OpcionB": "$45",
+      "OpcionC": "$30",
+      "RespuestaCorrecta": "$40",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2018,
+      "Enunciado": "Si un rectángulo tiene base 8 y altura 3, ¿cuál es su área?",
+      "OpcionA": "11",
+      "OpcionB": "24",
+      "OpcionC": "18",
+      "RespuestaCorrecta": "24",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2019,
+      "Enunciado": "Si un número es divisible por 2 y 3, ¿también es divisible por 6?",
+      "OpcionA": "Sí",
+      "OpcionB": "No",
+      "OpcionC": "Depende",
+      "RespuestaCorrecta": "Sí",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2020,
+      "Enunciado": "Si hoy es domingo, ¿qué día será dentro de 10 días?",
+      "OpcionA": "Miércoles",
+      "OpcionB": "Martes",
+      "OpcionC": "Miércoles de la próxima semana",
+      "RespuestaCorrecta": "Miércoles",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2021,
+      "Enunciado": "Si 4 × X = 20, ¿cuánto vale X?",
+      "OpcionA": "4",
+      "OpcionB": "5",
+      "OpcionC": "6",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2022,
+      "Enunciado": "Si un triángulo tiene un ángulo de 90°, ¿qué tipo de triángulo es?",
+      "OpcionA": "Rectángulo",
+      "OpcionB": "Agudo",
+      "OpcionC": "Obtuso",
+      "RespuestaCorrecta": "Rectángulo",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2023,
+      "Enunciado": "Si 3 + X = 8, ¿cuánto vale X?",
+      "OpcionA": "4",
+      "OpcionB": "5",
+      "OpcionC": "6",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 2024,
+      "Enunciado": "Si una hora tiene 60 minutos, ¿cuántos minutos hay en 3 horas?",
+      "OpcionA": "120",
+      "OpcionB": "150",
+      "OpcionC": "180",
+      "RespuestaCorrecta": "180",
+      "Dificultad": "Medio"
+    }
+  ],
+  "Dificil": [
+    {
+      "Id": 3001,
+      "Enunciado": "Si A > B y B > C pero C > D, ¿cuál podría ser el orden correcto de menor a mayor?",
+      "OpcionA": "D, C, B, A",
+      "OpcionB": "C, D, B, A",
+      "OpcionC": "B, C, D, A",
+      "RespuestaCorrecta": "D, C, B, A",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3002,
+      "Enunciado": "Si X > Y, Y > Z y Z = 0, y además X + Y = 10, ¿cuál podría ser un valor posible de X?",
+      "OpcionA": "6",
+      "OpcionB": "4",
+      "OpcionC": "2",
+      "RespuestaCorrecta": "6",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3003,
+      "Enunciado": "Si A + B = 12, B + C = 14 y A + C = 16, ¿cuánto vale A?",
+      "OpcionA": "7",
+      "OpcionB": "8",
+      "OpcionC": "9",
+      "RespuestaCorrecta": "7",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3004,
+      "Enunciado": "Si cada afirmación falsa suma -1 y cada verdadera suma +2, y obtienes 3 puntos tras 3 afirmaciones, ¿cuántas fueron verdaderas?",
+      "OpcionA": "1",
+      "OpcionB": "2",
+      "OpcionC": "3",
+      "RespuestaCorrecta": "2",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3005,
+      "Enunciado": "Si P implica Q, y Q es falso, ¿qué se puede decir de P?",
+      "OpcionA": "Es falso",
+      "OpcionB": "Es verdadero",
+      "OpcionC": "No se puede determinar",
+      "RespuestaCorrecta": "Es falso",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3006,
+      "Enunciado": "Si el doble de un número es igual al triple de otro, y su diferencia es 4, ¿cuál es el mayor?",
+      "OpcionA": "El primero",
+      "OpcionB": "El segundo",
+      "OpcionC": "Son iguales",
+      "RespuestaCorrecta": "El primero",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3007,
+      "Enunciado": "Si una proposición y su negación no pueden ser verdaderas al mismo tiempo, ¿qué ley lógica se aplica?",
+      "OpcionA": "Ley de no contradicción",
+      "OpcionB": "Ley del tercero excluido",
+      "OpcionC": "Ley de identidad",
+      "RespuestaCorrecta": "Ley de no contradicción",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3008,
+      "Enunciado": "Si (A ∧ B) ⇒ C y C es falso, ¿qué podemos decir de A ∧ B?",
+      "OpcionA": "Es falso",
+      "OpcionB": "Es verdadero",
+      "OpcionC": "Indeterminado",
+      "RespuestaCorrecta": "Es falso",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3009,
+      "Enunciado": "Si 3x - 4 = 8, ¿cuánto vale x?",
+      "OpcionA": "2",
+      "OpcionB": "3",
+      "OpcionC": "4",
+      "RespuestaCorrecta": "4",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3010,
+      "Enunciado": "Si ¬(P ∨ Q) es verdadero, ¿qué se puede deducir?",
+      "OpcionA": "P y Q son verdaderos",
+      "OpcionB": "P y Q son falsos",
+      "OpcionC": "Solo uno es falso",
+      "RespuestaCorrecta": "P y Q son falsos",
+      "Dificultad": "Dificil"
+    }
+  ]
 }
