@@ -42,4 +42,3 @@ API REST desarrollada en **ASP.NET Core (C#)** que sirve como backend para la we
  ┣ 📜 appsettings.json
  ┗ 📜 ApiMatematicas.csproj
 
-
