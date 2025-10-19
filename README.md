@@ -47,15 +47,15 @@ API REST desarrollada en **ASP.NET Core (C#)** que sirve como backend para la we
 - Patrones de diseño: DTO + Strategy
 
 ## 📂 Estructura del proyecto
-┣ 📂 Clases
-┣ 📂 Controllers
-┣ 📂 Data
-┣ 📂 DTOs
-┣ 📂 JSON
-┣ 📂 Models
-┣ 📂 Strategies
-┣ 📂 Services
-┣ 📜 Program.cs
-┣ 📜 appsettings.json
-┗ 📜 ApiMatematicas.csproj
+- ┣ 📂 Clases
+- ┣ 📂 Controllers
+- ┣ 📂 Data
+- ┣ 📂 DTOs
+- ┣ 📂 JSON
+- ┣ 📂 Models
+- ┣ 📂 Strategies
+- ┣ 📂 Services
+- ┣ 📜 Program.cs
+- ┣ 📜 appsettings.json
+- ┗ 📜 ApiMatematicas.csproj
 
