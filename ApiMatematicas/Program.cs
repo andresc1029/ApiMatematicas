@@ -1,20 +1,27 @@
 using ApiMatematicas.Data;
+using ApiMatematicas.Strategy.InicioSesionStrateg;
+using ApiMatematicas.Strategy.InicioSesionStrategy;
 using ApiMatematicas.Strategy.RecupearContraseñaStrategy;
 using Microsoft.EntityFrameworkCore;
 using NETCore.MailKit;
 using NETCore.MailKit.Core;
-using NETCore.MailKit.Extensions;
 using NETCore.MailKit.Infrastructure.Internal;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 // -------------------------
-// Configuración de la DB
+// Configuración de la DB segura con user-secrets
 // -------------------------
+var supabasePassword = builder.Configuration["SUPABASE_PASSWORD"];
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!
+    .Replace("PLACEHOLDER", supabasePassword);
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+    options.UseNpgsql(connectionString));
+//JWT Secrets
+var jwtKey = builder.Configuration["Jwt:Key"]
+    ?? throw new Exception("JWT Key no encontrada en configuración.");
 
 
 // -------------------------
@@ -35,7 +42,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 // -------------------------
 // MailKit (IEmailService registrado automáticamente)
 // -------------------------
@@ -51,6 +57,12 @@ var mailKitOptions = new MailKitOptions
     Password = "pnfi vjtt pkny gwet",
     Security = true
 };
+// No tocar
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
 
 
 // Registrar el proveedor
@@ -59,13 +71,9 @@ builder.Services.AddSingleton<IMailKitProvider>(new MailKitProvider(mailKitOptio
 // Registrar EmailService
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-// Registrar recuperación de contraseña
+// Registrar/ inicio/recuperación de contraseña
 builder.Services.AddScoped<IRecuperarContrasena, RecuperacionContrasena>();
-
-// -------------------------
-// Registrar tu estrategia
-// -------------------------
-
+builder.Services.AddScoped<IRecuperarTokenInicioStrategy, JwtTokenStrategy>();
 
 // -------------------------
 // Construir app

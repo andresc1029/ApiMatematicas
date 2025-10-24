@@ -41,9 +41,9 @@ namespace ApiMatematicas.Controllers
         public async Task<IActionResult> ObtenerProblema(int usuarioId, int modo)
         {
             // Recuperar racha actual y máxima del usuario
-            var racha = await _db.Rachas.FirstOrDefaultAsync(r => r.UsuarioId == usuarioId && r.Modo == (ModoJuego)modo);
-            int rachaActual = racha?.Actual ?? 0;
-            int rachaMaxima = racha?.Maxima ?? 0;
+            var racha = await _db.Rachas.FirstOrDefaultAsync(r => r.usuarioId == usuarioId && r.modo == (ModoJuego)modo);
+            int rachaActual = racha?.actual ?? 0;
+            int rachaMaxima = racha?.maxima ?? 0;
 
             // Decidir dificultad
             string dificultad = ObtenerDificultad(rachaActual, rachaMaxima);
@@ -79,16 +79,16 @@ namespace ApiMatematicas.Controllers
                 return BadRequest(new { mensaje = "UserId es requerido" });
 
             // Buscar o crear racha del usuario
-            var racha = await _db.Rachas.FirstOrDefaultAsync(r => r.UsuarioId == dto.UsuarioId && r.Modo == dto.Modo);
+            var racha = await _db.Rachas.FirstOrDefaultAsync(r => r.usuarioId == dto.UsuarioId && r.modo == dto.Modo);
             if (racha == null)
             {
                 racha = new SistemaRacha
                 {
-                    UsuarioId = dto.UsuarioId,
-                    Modo = dto.Modo,
-                    Actual = 0,
-                    Maxima = 0,
-                    FechaUltimaActualizacion = DateTime.UtcNow
+                    usuarioId = dto.UsuarioId,
+                    modo = dto.Modo,
+                    actual = 0,
+                    maxima = 0,
+                    fechaUltimaActualizacion = DateTime.UtcNow
                 };
                 _db.Rachas.Add(racha);
             }
@@ -102,17 +102,17 @@ namespace ApiMatematicas.Controllers
             // Actualizar racha
             if (esCorrecta)
             {
-                if (racha.Actual == 0) racha.InicioRachaActual = DateTime.UtcNow;
-                racha.Actual++;
-                if (racha.Actual > racha.Maxima) racha.Maxima = racha.Actual;
+                if (racha.actual == 0) racha.inicioRachaActual = DateTime.UtcNow;
+                racha.actual++;
+                if (racha.actual > racha.maxima) racha.maxima = racha.actual;
             }
             else
             {
-                racha.Actual = 0;
-                racha.InicioRachaActual = null;
+                racha.actual = 0;
+                racha.inicioRachaActual = null;
             }
 
-            racha.FechaUltimaActualizacion = DateTime.UtcNow;
+            racha.fechaUltimaActualizacion = DateTime.UtcNow;
 
             try { await _db.SaveChangesAsync(); }
             catch (DbUpdateException ex)
@@ -124,9 +124,9 @@ namespace ApiMatematicas.Controllers
             {
                 correcta = esCorrecta,
                 modo = dto.Modo.ToString(),
-                rachaActual = racha.Actual,
-                rachaMaxima = racha.Maxima,
-                inicioRachaActual = racha.InicioRachaActual
+                rachaActual = racha.actual,
+                rachaMaxima = racha.maxima,
+                inicioRachaActual = racha.inicioRachaActual
             });
         }
     }

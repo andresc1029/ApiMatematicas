@@ -13,7 +13,7 @@ namespace ApiMatematicas.Models
 
         public string PasswordHash { get; set; } = string.Empty;
         public string? Correo { get; set; } = string.Empty;
-        public DateTime fechaRegistro { get; set; } = DateTime.Now;
+        public DateTime fechaRegistro { get; set; } = DateTime.UtcNow;
         public string rol { get; set; } = "Usuario";
         public bool activo { get; set; } = true;
 

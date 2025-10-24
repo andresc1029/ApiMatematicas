@@ -54,13 +54,13 @@ namespace ApiMatematicas.Controllers
 
             var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.nombreUsuario == login.nombreUsuario);
 
-            if (!BCrypt.Net.BCrypt.Verify(login.contrasena, usuario.PasswordHash))
+            if (usuario == null || !BCrypt.Net.BCrypt.Verify(login.contrasena, usuario.PasswordHash))
                 return Unauthorized(new { mensaje = "Usuario o contraseña incorrecta." });
 
             // Generar JWT
             var token = _recuperarToken.GenerateToken(usuario);
 
             return Ok(new { token, nombreUsuario = usuario.nombreUsuario });
-        }      
+        }
     }
 }

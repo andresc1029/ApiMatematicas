@@ -10,7 +10,7 @@ namespace ApiMatematicas.Controllers
     [ApiController]
     public class ControladorDeSecuencias : ControllerBase
     {
-        // Secuencias por dificultad
+        // Secuencias por dificultad 
         private static readonly List<Secuencia> SecuenciasFacil = new()
         {
              new Secuencia { Id = 1,  Numeros =  new List<int>{2,4,6,8}, Respuesta = 10, Dificultad="Facil" },
@@ -64,16 +64,17 @@ namespace ApiMatematicas.Controllers
         [HttpGet("racha/{usuarioId}/{modo}")]
         public async Task<IActionResult> ObtenerRacha(int usuarioId, int modo, [FromServices] AppDbContext db)
         {
-            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.UsuarioId == usuarioId && r.Modo == (ModoJuego)modo);
-            return Ok(new { actual = racha?.Actual ?? 0, maxima = racha?.Maxima ?? 0 });
+            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.usuarioId == usuarioId && r.modo == (ModoJuego)modo);
+            return Ok(new { actual = racha?.actual ?? 0, maxima = racha?.maxima ?? 0 });
         }
+
 
         // GET: Obtener secuencia aleatoria según racha
         [HttpGet("obtener")]
         public async Task<IActionResult> ObtenerSecuencia([FromQuery] int usuarioId, [FromQuery] int modo, [FromServices] AppDbContext db)
         {
-            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.UsuarioId == usuarioId && r.Modo == (ModoJuego)modo);
-            int rachaActual = racha?.Actual ?? 0;
+            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.usuarioId == usuarioId && r.modo == (ModoJuego)modo);
+            int rachaActual = racha?.actual ?? 0;
 
             string dificultad = rachaActual < 7 ? "Facil" :
                                 rachaActual < 14 ? "Medio" : "Dificil";
@@ -112,33 +113,33 @@ namespace ApiMatematicas.Controllers
             if (dto.UsuarioId <= 0)
                 return BadRequest(new { mensaje = "UserId es requerido" });
 
-            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.UsuarioId == dto.UsuarioId && r.Modo == dto.Modo);
+            var racha = await db.Rachas.FirstOrDefaultAsync(r => r.usuarioId == dto.UsuarioId && r.modo == dto.Modo);
             if (racha == null)
             {
                 racha = new SistemaRacha
                 {
-                    UsuarioId = dto.UsuarioId,
-                    Modo = dto.Modo,
-                    Actual = 0,
-                    Maxima = 0,
-                    FechaUltimaActualizacion = DateTime.UtcNow
+                    usuarioId = dto.UsuarioId,
+                    modo = dto.Modo,
+                    actual = 0,
+                    maxima = 0,
+                    fechaUltimaActualizacion = DateTime.UtcNow
                 };
                 db.Rachas.Add(racha);
             }
 
             if (esCorrecta)
             {
-                if (racha.Actual == 0) racha.InicioRachaActual = DateTime.UtcNow;
-                racha.Actual++;
-                if (racha.Actual > racha.Maxima) racha.Maxima = racha.Actual;
+                if (racha.actual == 0) racha.inicioRachaActual = DateTime.UtcNow;
+                racha.actual++;
+                if (racha.actual > racha.maxima) racha.maxima = racha.actual;
             }
             else
             {
-                racha.Actual = 0;
-                racha.InicioRachaActual = null;
+                racha.actual = 0;
+                racha.inicioRachaActual = null;
             }
 
-            racha.FechaUltimaActualizacion = DateTime.UtcNow;
+            racha.fechaUltimaActualizacion = DateTime.UtcNow;
 
             try { await db.SaveChangesAsync(); }
             catch (DbUpdateException ex)
@@ -151,9 +152,9 @@ namespace ApiMatematicas.Controllers
                 correcta = esCorrecta,
                 respuestaCorrecta = secuencia.Respuesta,
                 modo = dto.Modo.ToString(),
-                rachaActual = racha.Actual,
-                rachaMaxima = racha.Maxima,
-                inicioRachaActual = racha.InicioRachaActual
+                rachaActual = racha.actual,
+                rachamaxima = racha.maxima,
+                inicioRachaActual = racha.inicioRachaActual
             });
         }
     }

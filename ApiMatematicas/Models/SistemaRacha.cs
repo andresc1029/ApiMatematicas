@@ -7,18 +7,18 @@ namespace ApiMatematicas.Models
 {
     public class SistemaRacha
     {
-        public int Id { get; set; }
-        public int UsuarioId { get; set; }
+        public int id { get; set; }
+        public int usuarioId { get; set; }
 
         [JsonIgnore]
-        public Usuario? Usuario { get; set; }
+        public Usuario? usuario { get; set; }
 
-        public ModoJuego Modo { get; set; } = ModoJuego.SecuenciasNumericas;
+        public ModoJuego modo { get; set; } = ModoJuego.SecuenciasNumericas;
 
-        public int Actual { get; set; } = 0;
-        public int Maxima { get; set; } = 0;
+        public int actual { get; set; } = 0;
+        public int maxima { get; set; } = 0;
 
-        public DateTime FechaUltimaActualizacion { get; set; } = DateTime.UtcNow;
-        public DateTime? InicioRachaActual { get; set; } = null;
+        public DateTime fechaUltimaActualizacion { get; set; } = DateTime.UtcNow;
+        public DateTime? inicioRachaActual { get; set; } = null;
     }
 }
