@@ -17,6 +17,7 @@ var supabasePassword = builder.Configuration["SUPABASE_PASSWORD"];
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!
     .Replace("PLACEHOLDER", supabasePassword);
 
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 //JWT Secrets
@@ -24,9 +25,9 @@ var jwtKey = builder.Configuration["Jwt:Key"]
     ?? throw new Exception("JWT Key no encontrada en configuración.");
 
 
-// -------------------------
+
 // CORS
-// -------------------------
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -35,15 +36,13 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader());
 });
 
-// -------------------------
-// Controladores y Swagger
-// -------------------------
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // -------------------------
-// MailKit (IEmailService registrado automáticamente)
+// MailKit
 // -------------------------
 builder.Services.AddScoped<IEmailService, EmailService>();
 
@@ -57,7 +56,9 @@ var mailKitOptions = new MailKitOptions
     Password = "pnfi vjtt pkny gwet",
     Security = true
 };
-// No tocar
+
+
+// No Tocar //
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -75,14 +76,13 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IRecuperarContrasena, RecuperacionContrasena>();
 builder.Services.AddScoped<IRecuperarTokenInicioStrategy, JwtTokenStrategy>();
 
-// -------------------------
+
 // Construir app
-// -------------------------
+
 var app = builder.Build();
 
-// -------------------------
+
 // Middleware
-// -------------------------
 app.UseCors("AllowAll");
 
 if (app.Environment.IsDevelopment())
@@ -95,7 +95,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-// -------------------------
+
 // Ejecutar app
-// -------------------------
+
 app.Run();

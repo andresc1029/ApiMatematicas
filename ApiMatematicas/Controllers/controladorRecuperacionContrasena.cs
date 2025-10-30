@@ -69,7 +69,11 @@ namespace ApiMatematicas.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { mensaje = ex.Message });
+                return BadRequest(new
+                {
+                    mensaje = ex.Message,
+                    inner = ex.InnerException?.Message
+                });
             }
         }
     }

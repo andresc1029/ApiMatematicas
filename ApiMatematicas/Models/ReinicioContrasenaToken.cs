@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ApiMatematicas.Models
 {
@@ -13,7 +15,8 @@ namespace ApiMatematicas.Models
         public Usuario User { get; set; }
 
         // Token y expiración
-        public string Token { get; set; }
-        public DateTime Expiration { get; set; }
+        public required string Token { get; set; }
+
+        public DateTime Expiration { get; set; } = DateTime.UtcNow;
     }
 }
