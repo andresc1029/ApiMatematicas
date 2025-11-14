@@ -190,7 +190,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1002,
+      "Id": 1025,
       "Enunciado": "Si A > B y B > C, entonces ¿A es mayor que C?",
       "OpcionA": "Sí",
       "OpcionB": "No",
@@ -199,7 +199,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1003,
+      "Id": 1026,
       "Enunciado": "Si hoy es lunes, ¿qué día será dentro de 2 días?",
       "OpcionA": "Martes",
       "OpcionB": "Miércoles",
@@ -208,7 +208,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1004,
+      "Id": 1027,
       "Enunciado": "Si tienes 3 manzanas y das 1, ¿cuántas te quedan?",
       "OpcionA": "1",
       "OpcionB": "2",
@@ -217,7 +217,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1005,
+      "Id": 1028,
       "Enunciado": "Si 5 > 3 y 3 > 1, ¿cuál es el número más pequeño?",
       "OpcionA": "5",
       "OpcionB": "3",
@@ -226,7 +226,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1006,
+      "Id": 1029,
       "Enunciado": "Si Juan tiene más dinero que Ana, y Ana más que Pedro, ¿quién tiene menos dinero?",
       "OpcionA": "Juan",
       "OpcionB": "Ana",
@@ -235,7 +235,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1007,
+      "Id": 1030,
       "Enunciado": "Si el cielo está nublado, ¿qué puede suceder?",
       "OpcionA": "Llover",
       "OpcionB": "Nevar",
@@ -244,7 +244,7 @@
       "Dificultad": "Facil"
     },
     {
-      "Id": 1025,
+      "Id": 1031,
       "Enunciado": "Si 2 + 2 = 4, ¿cuánto es 4 + 2?",
       "OpcionA": "5",
       "OpcionB": "6",
