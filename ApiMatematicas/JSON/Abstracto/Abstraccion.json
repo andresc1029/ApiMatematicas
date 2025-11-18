@@ -1,0 +1,34 @@
+﻿[
+  {
+    "id": 1,
+    "titulo": "Giro",
+    "imagen": "http://localhost:5200/Imagenes/Rd.PNG",
+    "descripcion": "Son aquellos donde existe un desplazamiento del elemento de referencia alrededor de un eje (real o imaginario).",
+    "opciones": [ "A", "B", "C", "D", "E" ],
+    "respuesta": "C"
+  },
+  {
+    "id": 2,
+    "titulo": "Desplazamiento",
+    "imagen": "http://localhost:5200/Imagenes/id2C.png",
+    "descripcion": "Son aquellos en los cuales el o los elementos de referencia se van desplazando de un lado a otro del dibujo",
+    "opciones": [ "A", "B", "C", "D", "E" ],
+    "respuesta": "C"
+  },
+  {
+    "id": 3,
+    "titulo": "Solapamiento",
+    "imagen": "http://localhost:5200/Imagenes/Abs3.jpg",
+    "descripcion": "El solapamiento es cuando una figura por su movimiento tapa a otra. A veces esta puede confundirse con alternancia, una figura que aparece y desaparece",
+    "opciones": [ "A", "B", "C", "D", "E" ],
+    "respuesta": "D"
+  },
+  {
+    "id": 4,
+    "titulo": "Cambio de colores",
+    "imagen": "http://localhost:5200/Imagenes/Abs4.jpg",
+    "descripcion": "Se trata de ver cómo los “colores” cambian o evolucionan. Avisamos que por el momento en EPSO usan blanco, negro y grises. Suponemos que nuestra croqueta daltónica tendrá las mismas posibilidades, así que a fijarse en los colores y aplicarse",
+    "opciones": [ "A", "B", "C", "D", "E" ],
+    "respuesta": "E"
+  }
+]

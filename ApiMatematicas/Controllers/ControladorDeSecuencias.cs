@@ -46,16 +46,16 @@ namespace ApiMatematicas.Controllers
 
         private static readonly List<Secuencia> SecuenciasDificil = new()
         {
-            new Secuencia { Id = 21, Numeros = new List<int>{1,2,6,24,120}, Respuesta = 720, Dificultad="Dificil" },
-            new Secuencia { Id = 22, Numeros = new List<int>{1,1,2,6,24,120}, Respuesta = 720, Dificultad="Dificil" },
-            new Secuencia { Id = 23, Numeros = new List<int>{2,3,5,8,13,21}, Respuesta = 34, Dificultad="Dificil" },
-            new Secuencia { Id = 24, Numeros = new List<int>{1,4,9,16,25,36}, Respuesta = 49, Dificultad="Dificil" },
-            new Secuencia { Id = 25, Numeros = new List<int>{1,2,4,8,16,32,64}, Respuesta = 128, Dificultad="Dificil" },
-            new Secuencia { Id = 26, Numeros = new List<int>{3,5,9,17,33}, Respuesta = 65, Dificultad="Dificil" },
-            new Secuencia { Id = 27, Numeros = new List<int>{2,6,12,20,30,42}, Respuesta = 56, Dificultad="Dificil" },
-            new Secuencia { Id = 28, Numeros = new List<int>{1,3,7,15,31}, Respuesta = 63, Dificultad="Dificil" },
-            new Secuencia { Id = 29, Numeros = new List<int>{2,3,5,10,17,26}, Respuesta = 37, Dificultad="Dificil" },
-            new Secuencia { Id = 30, Numeros = new List<int>{1,2,3,5,8,13,21}, Respuesta = 34, Dificultad="Dificil" }
+            new Secuencia { Id = 26, Numeros = new List<int>{1,2,6,24,120}, Respuesta = 720, Dificultad="Dificil" },
+            new Secuencia { Id = 27, Numeros = new List<int>{1,1,2,6,24,120}, Respuesta = 720, Dificultad="Dificil" },
+            new Secuencia { Id = 28, Numeros = new List<int>{2,3,5,8,13,21}, Respuesta = 34, Dificultad="Dificil" },
+            new Secuencia { Id = 29, Numeros = new List<int>{1,4,9,16,25,36}, Respuesta = 49, Dificultad="Dificil" },
+            new Secuencia { Id = 30, Numeros = new List<int>{1,2,4,8,16,32,64}, Respuesta = 128, Dificultad="Dificil" },
+            new Secuencia { Id = 31, Numeros = new List<int>{3,5,9,17,33}, Respuesta = 65, Dificultad="Dificil" },
+            new Secuencia { Id = 32, Numeros = new List<int>{2,6,12,20,30,42}, Respuesta = 56, Dificultad="Dificil" },
+            new Secuencia { Id = 33, Numeros = new List<int>{1,3,7,15,31}, Respuesta = 63, Dificultad="Dificil" },
+            new Secuencia { Id = 34, Numeros = new List<int>{2,3,5,10,17,26}, Respuesta = 37, Dificultad="Dificil" },
+            new Secuencia { Id = 35, Numeros = new List<int>{1,2,3,5,8,13,21}, Respuesta = 34, Dificultad="Dificil" }
         };
 
         private static readonly Random rand = new Random();

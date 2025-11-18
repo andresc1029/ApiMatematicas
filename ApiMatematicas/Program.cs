@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using NETCore.MailKit;
 using NETCore.MailKit.Core;
 using NETCore.MailKit.Infrastructure.Internal;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,6 +82,14 @@ builder.Services.AddScoped<IRecuperarTokenInicioStrategy, JwtTokenStrategy>();
 // Construir app
 
 var app = builder.Build();
+
+// Middleware para servir imágenes estáticas
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Imagenes")), // Carpeta de imágenes
+    RequestPath = "/Imagenes"
+});
 
 
 // Middleware

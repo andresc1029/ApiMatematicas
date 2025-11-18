@@ -427,6 +427,33 @@
       "Dificultad": "Medio"
     },
     {
+      "Id": 3137,
+      "Enunciado": "Un tablero 3x3 tiene números del 1 al 9. Cada fila, columna y diagonal suma lo mismo. ¿Qué número va en el centro?",
+      "OpcionA": "5",
+      "OpcionB": "4",
+      "OpcionC": "6",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 3143,
+      "Enunciado": "Si una proposición lógica P implica Q, Q implica R, y P es verdadera, ¿qué se puede deducir sobre R?",
+      "OpcionA": "Es verdadera",
+      "OpcionB": "Es falsa",
+      "OpcionC": "Indeterminada",
+      "RespuestaCorrecta": "Indeterminada",
+      "Dificultad": "Medio"
+    },
+    {
+      "Id": 3140,
+      "Enunciado": "Si cada número de una secuencia es la suma de los dos anteriores más 1, y los dos primeros números son 1 y 2, ¿cuál es el cuarto número?",
+      "OpcionA": "6",
+      "OpcionB": "8",
+      "OpcionC": "7",
+      "RespuestaCorrecta": "8",
+      "Dificultad": "Medio"
+    },
+    {
       "Id": 2022,
       "Enunciado": "Si un triángulo tiene un ángulo de 90°, ¿qué tipo de triángulo es?",
       "OpcionA": "Rectángulo",
@@ -537,12 +564,75 @@
       "Dificultad": "Dificil"
     },
     {
-      "Id": 3010,
+      "Id": 3110,
+      "Enunciado": "Si la suma de tres números consecutivos es 36, ¿cuál es el número del medio?",
+      "OpcionA": "11",
+      "OpcionB": "12",
+      "OpcionC": "13",
+      "RespuestaCorrecta": "12",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3011,
       "Enunciado": "Si ¬(P ∨ Q) es verdadero, ¿qué se puede deducir?",
       "OpcionA": "P y Q son verdaderos",
       "OpcionB": "P y Q son falsos",
       "OpcionC": "Solo uno es falso",
       "RespuestaCorrecta": "P y Q son falsos",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3112,
+      "Enunciado": "Si un rectángulo tiene perímetro 24 y un lado mide 7, ¿cuál es la medida del otro lado?",
+      "OpcionA": "5",
+      "OpcionB": "6",
+      "OpcionC": "8",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3113,
+      "Enunciado": "En un tablero hay 5 fichas numeradas del 1 al 5. Cada jugador toma una ficha sin ver la otra. Se sabe que la suma de las dos fichas es impar y ninguna es el número 1. Si el primer jugador dice que su número es mayor que el del segundo, ¿cuáles son los posibles números del segundo jugador?",
+      "OpcionA": "2 o 4",
+      "OpcionB": "3 o 5",
+      "OpcionC": "2, 3 o 4",
+      "RespuestaCorrecta": "2 o 4",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3114,
+      "Enunciado": "Si cada número impar entre 1 y 9 se empareja con un número par menor que él, ¿cuántos pares distintos puedes formar?",
+      "OpcionA": "9",
+      "OpcionB": "10",
+      "OpcionC": "12",
+      "RespuestaCorrecta": "10",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3115,
+      "Enunciado": "Si una secuencia numérica sigue el patrón: suma del anterior + diferencia entre los dos previos, y los primeros tres números son 1,2,3, ¿cuál es el cuarto número?",
+      "OpcionA": "4",
+      "OpcionB": "5",
+      "OpcionC": "6",
+      "RespuestaCorrecta": "5",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3116,
+      "Enunciado": "Si cada ficha de un tablero de 4x4 es un número del 1 al 16 y ningún número se repite, ¿cuántas fichas con números pares hay en la diagonal principal?",
+      "OpcionA": "2",
+      "OpcionB": "3",
+      "OpcionC": "4",
+      "RespuestaCorrecta": "2",
+      "Dificultad": "Dificil"
+    },
+    {
+      "Id": 3118,
+      "Enunciado": "Si un reloj marca las horas en números primos y la hora actual es un número primo mayor que 5, ¿cuál es la siguiente hora prima?",
+      "OpcionA": "7",
+      "OpcionB": "11",
+      "OpcionC": "13",
+      "RespuestaCorrecta": "7",
       "Dificultad": "Dificil"
     }
   ]
