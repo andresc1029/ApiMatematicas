@@ -46,7 +46,7 @@ namespace ApiMatematicas.Controllers
             int rachaActual = racha?.actual ?? 0;
             int rachaMaxima = racha?.maxima ?? 0;
 
-            // Decidir dificultad si lo quieres implementar
+            // Decidir dificultad (Por ahora sin implementacion por falta de niveles)
             string dificultad = ObtenerDificultad(rachaActual, rachaMaxima);
 
             // Generar pregunta usando Strategy

@@ -22,13 +22,5 @@
     "descripcion": "El solapamiento es cuando una figura por su movimiento tapa a otra. A veces esta puede confundirse con alternancia, una figura que aparece y desaparece",
     "opciones": [ "A", "B", "C", "D", "E" ],
     "respuesta": "D"
-  },
-  {
-    "id": 4,
-    "titulo": "Cambio de colores",
-    "imagen": "http://localhost:5200/Imagenes/Abs4.jpg",
-    "descripcion": "Se trata de ver cómo los “colores” cambian o evolucionan. Avisamos que por el momento en EPSO usan blanco, negro y grises. Suponemos que nuestra croqueta daltónica tendrá las mismas posibilidades, así que a fijarse en los colores y aplicarse",
-    "opciones": [ "A", "B", "C", "D", "E" ],
-    "respuesta": "E"
   }
 ]

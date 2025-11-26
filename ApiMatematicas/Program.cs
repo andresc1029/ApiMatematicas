@@ -7,29 +7,22 @@ using NETCore.MailKit;
 using NETCore.MailKit.Core;
 using NETCore.MailKit.Infrastructure.Internal;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// -------------------------
-// Configuración de la DB segura con user-secrets
-// -------------------------
+// DB
 var supabasePassword = builder.Configuration["SUPABASE_PASSWORD"];
-
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!
     .Replace("PLACEHOLDER", supabasePassword);
 
-
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
-//JWT Secrets
+
+// JWT
 var jwtKey = builder.Configuration["Jwt:Key"]
     ?? throw new Exception("JWT Key no encontrada en configuración.");
 
-
-
 // CORS
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -38,16 +31,17 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader());
 });
 
+// Controllers + JSON
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
 
-builder.Services.AddControllers();
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// -------------------------
 // MailKit
-// -------------------------
-builder.Services.AddScoped<IEmailService, EmailService>();
-
 var mailKitOptions = new MailKitOptions
 {
     Server = "smtp.gmail.com",
@@ -59,38 +53,23 @@ var mailKitOptions = new MailKitOptions
     Security = true
 };
 
-
-// No Tocar //
-
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-});
-
-
-// Registrar el proveedor
 builder.Services.AddSingleton<IMailKitProvider>(new MailKitProvider(mailKitOptions));
-
-// Registrar EmailService
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-// Registrar/ inicio/recuperación de contraseña
+// Recuperación de contraseña / login
 builder.Services.AddScoped<IRecuperarContrasena, RecuperacionContrasena>();
 builder.Services.AddScoped<IRecuperarTokenInicioStrategy, JwtTokenStrategy>();
 
-
-// Construir app
-
+// Build app
 var app = builder.Build();
 
-// Middleware para servir imágenes estáticas
+// Static files
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "Imagenes")), // Carpeta de imágenes
+        Path.Combine(Directory.GetCurrentDirectory(), "Imagenes")),
     RequestPath = "/Imagenes"
 });
-
 
 // Middleware
 app.UseCors("AllowAll");
@@ -105,7 +84,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-
-// Ejecutar app
-
+// Run
 app.Run();
